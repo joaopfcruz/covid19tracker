@@ -21,7 +21,7 @@ from logging.handlers import RotatingFileHandler
 #LOG_FILE = "/home/ec2-user/covid/get_covid_data.log" #Log filename
 #TBD NPM
 #TBD GIT
-#TBD COREUI PROJECT ROOT
+#TBD COREUI PROJECTROOT
 
 TEMP_CSV = "data.csv" #Downloaded data from source URL
 FINAL_CSV = "data_final.csv" #Final CSV (after data enrichment)
