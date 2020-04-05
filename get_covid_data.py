@@ -21,14 +21,17 @@ from logging.handlers import RotatingFileHandler
 #LOG_FILE = "/home/ec2-user/covid/get_covid_data.log" #Log filename
 #TBD NPM
 #TBD GIT
-#TBD COREUI PROJECTROOT !\\\
+#TBD COREUI PROJECT ROOT
 
 TEMP_CSV = "data.csv" #Downloaded data from source URL
 FINAL_CSV = "data_final.csv" #Final CSV (after data enrichment)
 LOG_FILE = "get_covid_data.log" #Log filename
-COREUI_PROJECT_ROOT = "/Users/joaopfcruz/Desktop/covid/website"
 NPM_BINARY = "/usr/local/bin/npm"
 GIT_BINARY = "/usr/bin/git"
+#Stuff for Core UI
+COREUI_PROJECT_ROOT = "/Users/joaopfcruz/Desktop/website"
+COREUI_COUNTRIES_FILE = "/Users/joaopfcruz/Desktop/website/src/data/countries.json"
+COREUI_DATA_FILE = "/Users/joaopfcruz/Desktop/website/src/data/data.js"
 
 #Source: https://www.ecdc.europa.eu/en/publications-data/download-todays-data-geographic-distribution-covid-19-cases-worldwide
 SRC_URL = "https://opendata.ecdc.europa.eu/covid19/casedistribution/csv/" #Source URL
@@ -92,10 +95,6 @@ FINAL_CSV_DEATHSRUNNING_IDX = 13
 #Thresholds for counting the number of active spreading days
 RUNNING_DAYS_CASES_THRESHOLD = 50
 RUNNING_DAYS_DEATHS_THRESHOLD = 10
-
-#Stuff for Core UI
-COREUI_COUNTRIES_FILE = "/Users/joaopfcruz/Desktop/covid/website/src/data/countries.json"
-COREUI_DATA_FILE = "/Users/joaopfcruz/Desktop/covid/website/src/data/data.js"
 
 COREUI_CONST_DATA_DELIM = "#"
 COREUI_XAXIS_DATAFMT = "%b %d"
