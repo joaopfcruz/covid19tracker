@@ -16,22 +16,14 @@ from elasticsearch import Elasticsearch, RequestsHttpConnection
 from requests_aws4auth import AWS4Auth
 from logging.handlers import RotatingFileHandler
 
-#TEMP_CSV = "/home/ec2-user/covid/data.csv" #Downloaded data from source URL
-#FINAL_CSV = "/home/ec2-user/covid/data_final.csv" #Final CSV (after data enrichment)
-#LOG_FILE = "/home/ec2-user/covid/get_covid_data.log" #Log filename
-#TBD NPM
-#TBD GIT
-#TBD COREUI PROJECT ROOT
+TEMP_CSV = "/home/ec2-user/covid/data.csv" #Downloaded data from source URL
+FINAL_CSV = "/home/ec2-user/covid/data_final.csv" #Final CSV (after data enrichment)
+LOG_FILE = "/home/ec2-user/covid/get_covid_data.log" #Log filename
 
-TEMP_CSV = "data.csv" #Downloaded data from source URL
-FINAL_CSV = "data_final.csv" #Final CSV (after data enrichment)
-LOG_FILE = "get_covid_data.log" #Log filename
-NPM_BINARY = "/usr/local/bin/npm"
-GIT_BINARY = "/usr/bin/git"
-#Stuff for Core UI
-COREUI_PROJECT_ROOT = "/Users/joaopfcruz/Desktop/website"
-COREUI_COUNTRIES_FILE = "/Users/joaopfcruz/Desktop/website/src/data/countries.json"
-COREUI_DATA_FILE = "/Users/joaopfcruz/Desktop/website/src/data/data.js"
+NPM_BINARY = "/usr/bin/npm"
+COREUI_PROJECT_ROOT = "/home/ec2-user/coronacompare"
+COREUI_COUNTRIES_FILE = "/home/ec2-user/coronacompare/src/data/countries.json"
+COREUI_DATA_FILE = "/home/ec2-user/coronacompare/src/data/data.js"
 
 #Source: https://www.ecdc.europa.eu/en/publications-data/download-todays-data-geographic-distribution-covid-19-cases-worldwide
 SRC_URL = "https://opendata.ecdc.europa.eu/covid19/casedistribution/csv/" #Source URL
@@ -337,12 +329,12 @@ try:
 					logger.info("Constants and datasets successfully written to %s" % COREUI_DATA_FILE)
 
 			if os.path.exists(NPM_BINARY):
-				cmd = [NPM_BINARY, "run", "build"]
+				cmd = [NPM_BINARY, "run", "deploy"]
 				logger.info("Running %s..." % cmd)
 				proc = subprocess.Popen(cmd, stdout = subprocess.PIPE, stderr = subprocess.PIPE, cwd = COREUI_PROJECT_ROOT)
 				stdout, stderr = proc.communicate()
 				if proc.returncode == 0:
-					logger.info("NPM build run successfully. Return code: %d" % proc.returncode)
+					logger.info("NPM deploy run successfully. Return code: %d" % proc.returncode)
 				else:
 					logger.error("***NPM ended with error. Return code: %d" % proc.returncode)
 					logger.error("***NPM stdout: %s" % stdout)
